@@ -1,0 +1,135 @@
+@import "./variables";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  color: #121212;
+  background: #ffffff;
+  overflow-x: clip;
+
+  @media (max-width: 991.98px) {
+    font-size: 14px;
+  }
+}
+
+main {
+  flex: 1;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.preloader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  border: 2px solid #888888;
+  width: 48px;
+  height: 48px;
+  background: #888888;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 2s linear infinite;
+  transition: 0.25s ease-in-out;
+
+  &::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 24px solid;
+    border-color: transparent #e0e0e0;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  background-color: #e0e0e0;
+  border: 1px solid #c5c5c5;
+  border-radius: 10px;
+}
+
+.post {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  padding: 16px;
+  background-color: #f0f6ff;
+  border: 1px solid #c7d5e0;
+  border-radius: 10px;
+
+  & > p {
+    color: #444444;
+    
+    & br {
+      display: none;
+    }
+  }
+
+  &-error {
+    flex: 1 0 auto;
+    color: #9c2525;
+    background-color: #9f6565;
+    border: 1px solid #9c2525;
+  }
+
+  &-meta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: auto;
+
+    & time {
+      font-size: small;
+    }
+
+    & > a {
+      font-size: smaller;
+    }
+  }
+}
