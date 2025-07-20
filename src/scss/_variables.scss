@@ -327,14 +327,14 @@ p {
 }
 
 a {
-  color: #4089d6;
+  color: light-dark(#4089d6, #60a4ee);
   text-decoration: underline;
   text-decoration-style: dashed;
   text-decoration-skip: ink;
   text-underline-offset: 2px;
 
   &:hover {
-    color: #2a6bb2;
+    color: light-dark(#2a6bb2, #4b92de);
     text-decoration: none;
   }
 }

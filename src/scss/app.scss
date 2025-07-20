@@ -24,8 +24,8 @@ body {
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: -0.04em;
-  color: #121212;
-  background: #ffffff;
+  color: light-dark(#121212, #fefefe);
+  background: light-dark(#ffffff, #222222);
   overflow-x: clip;
 
   @media (max-width: 991.98px) {
@@ -38,11 +38,8 @@ main {
 }
 
 @keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
@@ -51,24 +48,24 @@ main {
   top: 50%;
   left: 50%;
   z-index: 1;
-  border: 2px solid #888888;
+  display: flex;
   width: 48px;
   height: 48px;
-  background: #888888;
+  border: 2px solid light-dark(#888888, #444444);
+  background: light-dark(#888888, #444444);
   border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
   animation: rotation 2s linear infinite;
+  transform-origin: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
   transition: 0.25s ease-in-out;
 
   &::after {
-    content: "";
-    box-sizing: border-box;
+    content: '';
     position: absolute;
     left: 50%;
     top: 50%;
     border: 24px solid;
-    border-color: transparent #e0e0e0;
+    border-color: transparent light-dark(#e0e0e0, #666666);
     border-radius: 50%;
     transform: translate(-50%, -50%);
   }
@@ -83,8 +80,8 @@ main {
   gap: 16px;
   width: 100%;
   padding: 16px;
-  background-color: #e0e0e0;
-  border: 1px solid #c5c5c5;
+  background-color: light-dark(#e0e0e0, #666666);
+  border: 1px solid light-dark(#c5c5c5, #8c8c8c);
   border-radius: 10px;
 }
 
@@ -96,12 +93,12 @@ main {
   align-items: stretch;
   width: 100%;
   padding: 16px;
-  background-color: #f0f6ff;
-  border: 1px solid #c7d5e0;
+  background-color: light-dark(#f0f6ff, #515865);
+  border: 1px solid light-dark(#c7d5e0, #758593);
   border-radius: 10px;
 
   & > p {
-    color: #444444;
+    color: light-dark(#444444, #efefef);
     
     & br {
       display: none;
@@ -111,7 +108,7 @@ main {
   &-error {
     flex: 1 0 auto;
     color: #9c2525;
-    background-color: #9f6565;
+    background-color: #ecc8c8;
     border: 1px solid #9c2525;
   }
 
